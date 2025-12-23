@@ -1,0 +1,25 @@
+{
+  "name": "10mysql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GirishCPatil/10Mysql.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GirishCPatil/10Mysql/issues"
+  },
+  "homepage": "https://github.com/GirishCPatil/10Mysql#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mysql2": "^3.16.0",
+    "nodemon": "^3.1.11"
+  }
+}
