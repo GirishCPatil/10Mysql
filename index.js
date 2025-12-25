@@ -1,5 +1,5 @@
 const express = require('express');
-const db = require('./utils/db');
+const sequelize = require('./utils/db');
 const userRoutes = require('./routers/userRoutes');
 const busRoutes = require('./routers/busRoutes'); 
 
@@ -15,7 +15,14 @@ app.get('/', (req, res) => {
 });
 
 
-
+sequelize.sync()
+  .then(() =>{ 
+    console.log('All models synced')
 app.listen(4000, () => {
   console.log('Server running on port 4000');
 });
+  }).catch(err => console.error(err));
+
+
+
+
