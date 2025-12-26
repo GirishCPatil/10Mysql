@@ -1,5 +1,7 @@
 const db = require('../utils/db');
 const BusModel = require('../models/busModel');
+const Booking = require('../models/bookingModel');
+const User = require('../models/UserModel');
 
 exports.addBus = (req, res) => {
 
@@ -41,4 +43,22 @@ exports.getAvailableBuses =async (req, res) => {
   //   if (err) return res.status(500).send(err.message);
   //   res.json(results.filter(bus => bus.availableSeats > seats));
   // });
+};
+
+
+
+exports.getBusBookings = async (req, res) => {
+  try {
+    const bookings = await Booking.findAll({
+      where: { busId: req.params.id },
+      include: {
+        model: User,
+        attributes: ['name', 'email']
+      }
+    });
+
+    res.json(bookings);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 };

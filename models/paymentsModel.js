@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+const sequelize = require('../utils/db');
 
 const Payment = sequelize.define('Payment', {
   id: {
@@ -15,6 +15,9 @@ const Payment = sequelize.define('Payment', {
     type: DataTypes.STRING,
     allowNull: false
   }
+},{
+  tableName: 'payments',
+  timestamps: false
 });
 
 module.exports = Payment;
